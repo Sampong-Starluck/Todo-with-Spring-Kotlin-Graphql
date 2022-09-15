@@ -1,0 +1,42 @@
+spring:
+    application:
+        name: @project.artifactId@
+    main:
+        banner-mode: log
+    config:
+        import: optional:resources/
+    codec:
+        log-request-details: on
+
+    graphql:
+        schema:
+            printer:
+                enabled: true
+    jpa:
+        show_sql: true
+        properties.hibernate:
+            format_sql: true
+            use_sql_comments: true
+
+server:
+    port: 8080
+
+management:
+    server:
+        port: @management.port@
+    endpoints:
+        web:
+            exposure:
+                include: health, metrics, info
+
+debug: off
+trace: off
+logging:
+    file:
+        name: /var/log/spring-boot/@build.name@.log
+    level:
+        root: error
+        web: trace
+        org:
+            hibernate:
+                type: trace

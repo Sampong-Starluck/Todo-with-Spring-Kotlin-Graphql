@@ -1,0 +1,26 @@
+spring.application.name= @project.artifactId@
+spring.main.banner-mode=log
+#spring.config.import=optional:config/
+spring.codec.log-request-details=true
+
+spring.graphql.cors.allow-credentials=true
+spring.graphql.cors.allowed-headers=application/json
+# Normally only allows origin url which frontend is running(localhost:3000)
+spring.graphql.cors.allowed-origins=*
+#spring.graphql.cors.exposed-headers=
+spring.graphql.schema.printer.enabled=true
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+spring.jpa.properties.hibernate.use_sql_comments=true
+
+server.port=8080
+
+management.server.port = @management.port@
+management.endpoints.web.exposure.include= health, metric, info
+
+debug=false
+trace=false
+logging.file.name=/var/log/spring-boot/@build.name@.log
+logging.level.root=error
+logging.level.web=trace
+logging.level.org.hibernate.type=trace
